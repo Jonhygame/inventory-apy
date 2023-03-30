@@ -4,12 +4,17 @@ const port = 3000
 //const mongoose = require('mongoose');
 require('dotenv').config()
 const con = require('./MongooseConnection')
-const Rutas = require('./routes/ProductsRoutes.js')
+const productRutas = require('./routes/ProductsRoutes.js')
 //const MongoClient = require('mongodb').MongoClient
 //const conn_String = 'mongodb+srv://JonathanJ:420019jJ@cluster0.oqnajti.mongodb.net/?retryWrites=true&w=majority'
 app.use(express.json());
-//const Rutas = require('./routes/web');
-app.use('/api/v1',Rutas);
+const Rutas = require('./routes/web');
+const authJwt = require('./auth/jwt');
+app.use(authJwt());
+const userRouter = require('./routes/UserRouter')
+//app.use('/api/v1/products',productRutas);
+app.use('/api/v1/users',userRouter);
+//app.use('/api/v1',Rutas);
 //const { Connection } = require('./Connection');
 
 app.listen(port, () => {

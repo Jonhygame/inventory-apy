@@ -69,7 +69,7 @@ async function showProducts(){
 }
 
 
-router.put('/products', async (req, res)=> {//ACTUALIZAR
+router.put('/products', async (req, res)=> {//ACTUALIZAR TODO
   const product = Connection.db.collection("Products");
  
   const doc = {
@@ -88,7 +88,7 @@ router.put('/products', async (req, res)=> {//ACTUALIZAR
 
 })
 
-router.patch('/products', async (req, res)=> {//
+router.patch('/products', async (req, res)=> {//Actualizar solo los datos que se enviaron no todos
   const product = Connection.db.collection("Products");
  
   const doc = req.body
