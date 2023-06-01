@@ -1,8 +1,8 @@
 var express = require('express')
 var router = express.Router()
-const Product = require('../models/product.js')
+const Product = require('../models/product.js').default
 
-router.get('/', (req, res) => res.send('Hi World!'))
+router.get('/', (req, res) => res.send('{"hola":"mundo"}'))
 
 router.get('/hola',async (req, res) => {
   const count = await Product.count({})

@@ -21,7 +21,7 @@ router.post('/products', async (req, res) => {
   res.send("Product inserted...")
 })
 
-router.get('/', (req, res) => res.send('Hi World!'))
+router.get('/', (req, res) => res.send({"hola":"mundo"}))
 
 router.get('/products',async (req, res) => {
   //const products = await db.collection('Products').find({}).toArray() 
